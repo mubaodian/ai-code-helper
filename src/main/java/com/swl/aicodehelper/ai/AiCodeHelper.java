@@ -14,8 +14,25 @@ public class AiCodeHelper {
     @Resource
     private ChatModel qwenMaxChatModel;
 
+    /**
+     * 简单对话
+     * @param message
+     * @return
+     */
     public String chat(String message){
         ChatResponse chatResponse = qwenMaxChatModel.chat(new UserMessage(message));
+        AiMessage aiMessage = chatResponse.aiMessage();
+        log.info("AI Response:{}",aiMessage.toString());
+        return aiMessage.text();
+    }
+
+    /**
+     * 简单对话-自定义用户消息(多模态)
+     * @param
+     * @return
+     */
+    public String chatWithMessage(UserMessage userMessage){
+        ChatResponse chatResponse = qwenMaxChatModel.chat(userMessage);
         AiMessage aiMessage = chatResponse.aiMessage();
         log.info("AI Response:{}",aiMessage.toString());
         return aiMessage.text();
