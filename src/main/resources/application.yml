@@ -1,3 +1,13 @@
 spring:
     application:
         name: ai-code-helper
+    config:
+        import: optional:file:.env[.properties]
+    profiles:
+        active: local
+langchain4j:
+    community:
+        dashscope:
+            chat-model:
+                model-name: qwen-max
+                api-key: ${DASHSCOPE_API_KEY}
