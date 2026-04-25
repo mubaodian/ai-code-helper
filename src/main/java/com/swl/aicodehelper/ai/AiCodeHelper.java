@@ -22,6 +22,8 @@ public class AiCodeHelper {
                 请用简洁易懂的语言回答，助力用户高效学习与求职。
             """;
 
+//    @Resource
+//    private ChatModel qwenChatModel;
     @Resource
     private ChatModel qwenMaxChatModel;
 
