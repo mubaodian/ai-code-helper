@@ -16,4 +16,12 @@ class AiCodeHelperServiceTest {
         String result = aiCodeHelperService.chat("你好，我叫张三");
         assertNotNull(result);
     }
+
+    @Test
+    void chatWithMemory(){
+        String result = aiCodeHelperService.chat("你好，我叫张三");
+        System.out.println(result);
+        result = aiCodeHelperService.chat("我是谁来着");
+        System.out.println(result);
+    }
 }
