@@ -14,3 +14,6 @@ langchain4j:
             embedding-model:
                 model-name: text-embedding-v4
                 api-key: ${DASHSCOPE_API_KEY}
+bigmodel:
+    api-key: ${BIGMODEL_API_KEY}
+

@@ -1,6 +1,7 @@
 package com.swl.aicodehelper.ai;
 
 import com.swl.aicodehelper.tools.InterviewQuestionTool;
+import dev.langchain4j.mcp.McpToolProvider;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
@@ -16,6 +17,8 @@ public class AiCodeHelperServiceFactory {
     private ChatModel qwenMaxChatModel;
     @Resource
     private EmbeddingStoreContentRetriever contentRetriever;
+    @Resource
+    private McpToolProvider toolProvider;
 
     @Bean
     public AiCodeHelperService aiCodeHelperService() {
@@ -25,6 +28,7 @@ public class AiCodeHelperServiceFactory {
                 .chatMemory(chatMemory) //会话记忆
                 .contentRetriever(contentRetriever) //RAG检索增强
                 .tools(new InterviewQuestionTool()) //工具调用
+                .toolProvider(toolProvider) // MCP 工具调用
                 .build();
     }
 }
