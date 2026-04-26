@@ -1,5 +1,6 @@
 package com.swl.aicodehelper.ai;
 
+import com.swl.aicodehelper.tools.InterviewQuestionTool;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
@@ -23,6 +24,7 @@ public class AiCodeHelperServiceFactory {
                 .chatModel(qwenMaxChatModel)
                 .chatMemory(chatMemory) //会话记忆
                 .contentRetriever(contentRetriever) //RAG检索增强
+                .tools(new InterviewQuestionTool()) //工具调用
                 .build();
     }
 }
